@@ -8,7 +8,7 @@ export default function Locale() {
   return (
     <div className="p-4 text-white">
       <h1 className="text-3xl font-bold">Locale {id}</h1>
-      <p>Pagina di prova del locale {id} con la struttura moderna.</p>
+      <p>Benvenuto nel locale con ID: {id}</p>
     </div>
   );
 }
