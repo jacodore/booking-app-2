@@ -8,7 +8,7 @@ export default function Locale() {
   return (
     <div className="p-4 text-white">
       <h1 className="text-3xl font-bold">Locale {id}</h1>
-      <p>Benvenuto nel locale con ID: {id}</p>
+      <p>Pagina dinamica per il locale con ID: {id}</p>
     </div>
   );
 }
