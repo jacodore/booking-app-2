@@ -81,23 +81,23 @@ export default function HomePage() {
 
       {/* NAVIGAZIONE IN BASSO */}
       <div className="fixed bottom-0 left-0 right-0 bg-gray-900 p-3 flex justify-around text-gray-300">
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center cursor-pointer" onClick={() => router.push('/')}>
           <Home size={24} />
           <span className="text-xs">Home</span>
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center cursor-pointer" onClick={() => alert('Eventi - Da creare')}>
           <Calendar size={24} />
           <span className="text-xs">Eventi</span>
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center cursor-pointer" onClick={() => alert('Acquisti - Da creare')}>
           <Ticket size={24} />
           <span className="text-xs">Acquisti</span>
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center cursor-pointer" onClick={() => alert('Clubs - Da creare')}>
           <MapPin size={24} />
           <span className="text-xs">Clubs</span>
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center cursor-pointer" onClick={() => alert('Profilo - Da creare')}>
           <User size={24} />
           <span className="text-xs">Profilo</span>
         </div>
