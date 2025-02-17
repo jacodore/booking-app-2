@@ -1,8 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
+/* Reset base per eliminare margini e padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Imposta il colore di sfondo generale e il colore del testo */
 body {
-  font-family: 'Poppins', sans-serif;
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+}
+
+/* Rimuove la scrollbar orizzontale nella sezione In Evidenza */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
