@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Home, Calendar, Ticket, MapPin, User, Search, Map, QrCode, MessageSquare } from 'lucide-react';
-import { Input } from '@/components/ui/input';
+const Input = (props) => <input {...props} className="p-2 rounded bg-gray-800 text-white w-full" />;
 
 export default function AppLayout() {
   const [tab, setTab] = useState('home');
