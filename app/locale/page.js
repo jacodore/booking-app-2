@@ -1,8 +1,9 @@
 "use client";
 
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-export default function Locale() {
+function LocaleContent() {
   const searchParams = useSearchParams();
   const id = searchParams.get('id');
 
@@ -14,3 +15,10 @@ export default function Locale() {
   );
 }
 
+export default function Locale() {
+  return (
+    <Suspense fallback={<div>Caricamento...</div>}>
+      <LocaleContent />
+    </Suspense>
+  );
+}
