@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from 'react';
 import { Home, Calendar, Ticket, MapPin, User, Search, Map, QrCode, MessageSquare } from 'lucide-react';
 import { Input } from '@/components/ui/input';
