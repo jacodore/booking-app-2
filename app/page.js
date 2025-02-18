@@ -1,12 +1,18 @@
 "use client";
 
 import { useRouter } from 'next/navigation';
-import { Home, Calendar, Ticket, MapPin, User, Bell, Frown } from 'lucide-react';
+import { Home, Calendar, Ticket, MapPin, User, Bell, Frown, Search } from 'lucide-react';
 import { useState } from 'react';
 
 export default function HomePage() {
   const router = useRouter();
   const [search, setSearch] = useState("");
+
+  const clubs = [
+    { slug: 'hal-club', name: 'HAL Club', location: 'Villa Borghese, Roma', image: '/hal-club.jpg' },
+    { slug: 'qi-clubbing', name: 'Qi Clubbing', location: 'Erbusco (BS)', image: '/qi-clubbing.jpg' },
+    { slug: 'piper-club', name: 'Piper Club', location: 'Roma', image: '/piper-club.jpg' }
+  ];
 
   const eventiInEvidenza = [
     { id: 1, titolo: "VIDA LOCA", data: "22 Feb", luogo: "Erbusco", prezzo: "da €3", img: "/hal-club.jpg" },
@@ -15,7 +21,7 @@ export default function HomePage() {
 
   return (
     <div className="bg-black text-white min-h-screen font-[Poppins]">
-      
+
       {/* HEADER */}
       <div className="p-4 flex justify-between items-center bg-black">
         <h1 className="text-2xl font-bold">Home</h1>
@@ -34,7 +40,7 @@ export default function HomePage() {
             onChange={(e) => setSearch(e.target.value)}
             className="w-full bg-gray-800 text-white rounded-full p-3 pl-10 outline-none"
           />
-          <MapPin className="absolute left-3 top-3 text-gray-400" size={20} />
+          <Search className="absolute left-3 top-3 text-gray-400" size={20} />
         </div>
       </div>
 
@@ -64,10 +70,30 @@ export default function HomePage() {
         </div>
       )}
 
-      {/* SPAZIO PER EVITARE CHE LA NAVBAR COPRA CONTENUTI */}
+      {/* CLUBS */}
+      <div className="p-4">
+        <h2 className="text-lg font-semibold mb-3">🏠 Clubs</h2>
+        <div className="grid grid-cols-1 gap-3">
+          {clubs.map((club) => (
+            <div
+              key={club.slug}
+              className="bg-gray-800 rounded-lg overflow-hidden cursor-pointer flex items-center"
+              onClick={() => router.push(`/${club.slug}`)}
+            >
+              <img src={club.image} alt={club.name} className="w-24 h-24 object-cover" />
+              <div className="p-3 flex flex-col justify-center">
+                <h3 className="text-lg font-semibold">{club.name}</h3>
+                <p className="text-sm text-gray-400">{club.location}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* SPAZIO PER NON FAR COPRIRE CLUBS */}
       <div className="h-24"></div>
 
-      {/* NAVIGAZIONE IN BASSO (SOLO ICONE) */}
+      {/* NAVIGAZIONE IN BASSO */}
       <div className="fixed bottom-0 left-0 right-0 bg-black p-3 flex justify-around text-gray-300 border-t border-gray-700">
         <div className="flex flex-col items-center cursor-pointer" onClick={() => router.push('/')}>
           <Home size={24} className="text-purple-500" />
@@ -88,4 +114,3 @@ export default function HomePage() {
     </div>
   );
 }
-
